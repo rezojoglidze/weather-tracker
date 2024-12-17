@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import WeatherTrackerGateway
 
 // MARK: - Home View Model
 @Observable final class HomeViewModel {
     // MARK: Properties
+    
 }
