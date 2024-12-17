@@ -11,8 +11,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A9831E8F2D11C595006C07DF /* weather-tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "weather-tracker.app"; path = "/Users/rezojoglidze/Desktop/weather-tracker/build/Debug-iphoneos/weather-tracker.app"; sourceTree = "<absolute>"; };
 		A9831EC92D11C831006C07DF /* WeatherTrackerGateway */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = WeatherTrackerGateway; sourceTree = "<group>"; };
+		A98964402D11DDAC00C99634 /* weather-tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "weather-tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -41,6 +41,7 @@
 				A9831E912D11C595006C07DF /* weather-tracker */,
 				A9831EC92D11C831006C07DF /* WeatherTrackerGateway */,
 				A9831ECA2D11C937006C07DF /* Frameworks */,
+				A98964402D11DDAC00C99634 /* weather-tracker.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,7 +75,7 @@
 				A9831ECB2D11C937006C07DF /* WeatherTrackerGateway */,
 			);
 			productName = "weather-tracker";
-			productReference = A9831E8F2D11C595006C07DF /* weather-tracker.app */;
+			productReference = A98964402D11DDAC00C99634 /* weather-tracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
