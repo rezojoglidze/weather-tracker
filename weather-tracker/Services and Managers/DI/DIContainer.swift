@@ -23,7 +23,7 @@ final class DIContainer {
     final class NetworkGateways {
         // MARK: Properties - Get Developers Gateweay
         lazy var currentWeatherGateway: CurrentWeatherGatewayProtocol = CurrentWeatherGateway()
-        lazy var searchLocationGateway: SearchLocationGatewayProtocol = SearchLocationGateway()
+        lazy var searchCityGateway: SearchCityGatewayProtocol = SearchCityGateway()
 
     }
     
@@ -31,7 +31,7 @@ final class DIContainer {
 #if DEBUG
     func injectPreviewDependencies() {
         networkGateways.currentWeatherGateway = MockCurrentWeatherGateway()
-        networkGateways.searchLocationGateway = MockSearchLocationGateway()
+        networkGateways.searchCityGateway = MockSearchCityGateway()
     }
 #endif
 }
