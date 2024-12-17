@@ -36,15 +36,15 @@ struct CityItemView: View {
     // MARK: Content View
     private var contentView: some View {
         HStack(spacing: .zero) {
-            cityInfoView
+            titleSubTitleView
             Spacer()
-            imageView
+            weatherIconView
         }
         .padding(.horizontal, 31)
         .background { backgroundView }
     }
     
-    private var cityInfoView: some View {
+    private var titleSubTitleView: some View {
         VStack(alignment: .leading, spacing: .zero) {
             Spacer().frame(height: 16)
             Text(parameters.city.location.name)
@@ -58,15 +58,15 @@ struct CityItemView: View {
     
     private var celsiusTextView: some View {
         HStack(alignment: .top, spacing: .zero) {
-            Text("\(parameters.city.location.name)")
+            Text(parameters.city.current.tempCelsius.toString())
                 .font(uiModel.celsiusTextFont)
                 .foregroundStyle(uiModel.celsiusTextColor)
             
             Spacer().frame(width: 8)
             
             VStack(spacing: .zero) {
-                Spacer().frame(height: 16)
-                
+                Spacer().frame(height: 12)
+
                 Color.white
                     .frame(width: 5, height: 5)
                     .overlay(
@@ -77,11 +77,17 @@ struct CityItemView: View {
         }
     }
     
-    private var imageView: some View {
-        Image(.locationIcon)
-            .resizable()
-            .frame(width: 83, height: 67)
-        
+    private var weatherIconView: some View {
+        AsyncImage(
+            url: parameters.city.current.condition.iconURL,
+            content: { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }, placeholder: {
+                Color.init(hex: 0xF2F2F2)
+            })
+        .frame(width: 83, height: 67)
     }
     
     private var backgroundView: some View {

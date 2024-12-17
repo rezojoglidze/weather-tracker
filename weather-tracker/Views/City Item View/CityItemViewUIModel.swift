@@ -12,7 +12,7 @@ struct CityItemViewUIModel {
     let cityTextFont: Font = FontBook.bold(size: 20)
     let cityTextColor: Color = Color.init(hex: 0x2C2C2C)
         
-    let celsiusTextFont: Font = FontBook.medium(size: 25)
+    let celsiusTextFont: Font = FontBook.medium(size: 50)
     let celsiusTextColor: Color = Color.init(hex: 0x2C2C2C)
     
     let contentViewBackgroundColor: Color = Color.init(hex: 0xF2F2F2)
