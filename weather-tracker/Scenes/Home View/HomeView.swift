@@ -31,12 +31,14 @@ struct HomeView: View {
                 Spacer().frame(height: 22)
                 searchBar
                 
-                if !viewModel.searchedCities.isEmpty {
-                    searchResultView
-                } else if let weather = viewModel.currentWeather {
-                    weatherInfoView(weather: weather)
-                } else {
-                    noCitySelectedView
+                switch viewModel.contentType {
+                case .searchedList: searchResultView
+                case .savedCityWeather:
+                    if let weather = viewModel.currentWeather {
+                        weatherInfoView(weather: weather)
+                    }
+                case .noCitySelected: noCitySelectedView
+                case .empty: EmptyView()
                 }
             }
             .padding(.horizontal, 24)

@@ -14,6 +14,12 @@ import SwiftUI
     private(set) var isLoading: Bool = false
     private var showAlert: AlertParameters?
     
+    private(set) var currentWeather: CurrentWeatherEntity?
+    private(set) var searchedCities: [CurrentWeatherEntity] = []
+}
+
+extension HomeViewModel {
+    // MARK: Properties
     var alertParameters: Binding<AlertParameters?> {
         Binding(
             get: { self.showAlert },
@@ -21,11 +27,20 @@ import SwiftUI
         )
     }
     
-    private(set) var currentWeather: CurrentWeatherEntity?
-    private(set) var searchedCities: [CurrentWeatherEntity] = []
-}
-
-extension HomeViewModel {
+    var contentType: HomeViewContentType {
+        if !searchedCities.isEmpty {
+            return .searchedList
+        } else if currentWeather != nil {
+            return .savedCityWeather
+        } else {
+            if isLoading {
+                return .empty
+            } else {
+                return .noCitySelected
+            }
+        }
+    }
+    
     // MARK: Lifecycle
     func didLoad() {
         if let cityName = UserDefaults.savedCity {
